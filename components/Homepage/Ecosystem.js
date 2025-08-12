@@ -11,22 +11,13 @@ import {
   FaHandsHelping,
 } from 'react-icons/fa';
 
-const orbitItems = [
-  { name: 'Marketplace', icon: <FaStore className="text-green-700 text-2xl" />, angle: 0 },
-  { name: 'Logistics', icon: <FaTruck className="text-green-700 text-2xl" />, angle: 60 },
-  { name: 'HubPay', icon: <FaMoneyBillWave className="text-green-700 text-2xl" />, angle: 120 },
-  { name: 'Foods', icon: <FaSeedling className="text-green-700 text-2xl" />, angle: 180 },
-  { name: 'Franchise', icon: <FaHandshake className="text-green-700 text-2xl" />, angle: 240 },
-  { name: 'Foundation', icon: <FaHandsHelping className="text-green-700 text-2xl" />, angle: 300 },
-];
-
-const pillList = [
-  { name: 'Marketplace', icon: <FaStore className="text-green-600 text-base" /> },
-  { name: 'Logistics', icon: <FaTruck className="text-green-600 text-base" /> },
-  { name: 'HubPay', icon: <FaMoneyBillWave className="text-green-600 text-base" /> },
-  { name: 'Foods', icon: <FaSeedling className="text-green-600 text-base" /> },
-  { name: 'Franchise', icon: <FaHandshake className="text-green-600 text-base" /> },
-  { name: 'Foundation', icon: <FaHandsHelping className="text-green-600 text-base" /> },
+const ecosystemItems = [
+  { name: 'Marketplace', icon: FaStore, angle: 0 },
+  { name: 'Logistics', icon: FaTruck, angle: 60 },
+  { name: 'HubPay', icon: FaMoneyBillWave, angle: 120 },
+  { name: 'Foods', icon: FaSeedling, angle: 180 },
+  { name: 'Franchise', icon: FaHandshake, angle: 240 },
+  { name: 'Foundation', icon: FaHandsHelping, angle: 300 },
 ];
 
 export default function Ecosystem() {
@@ -34,33 +25,39 @@ export default function Ecosystem() {
 
   return (
     <section
+      role="region"
+      aria-labelledby="ecosystem-title"
       className="py-20 px-6 sm:px-10 lg:px-20 bg-gradient-to-br from-gray-50 via-white to-gray-100"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-col-reverse lg:flex-row gap-12 items-center">
-        {/* Left Column (Text Content) */}
+        
+        {/* Left Column */}
         <div className="w-full lg:w-1/2 space-y-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 id="ecosystem-title" className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             One Brand. Multiple Engines of Impact.
           </h2>
           <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-            The Markethub9ja Ecosystem is a connected network of brands working
-            together to simplify commerce, empower communities, and scale
+            The <strong>Markethub9ja Ecosystem</strong> is a connected network of brands 
+            working together to simplify commerce, empower communities, and scale 
             digital access across Africa.
           </p>
 
           {/* Pill Grid */}
           <div className="grid grid-cols-2 gap-3 pt-2">
-            {pillList.map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-100 text-green-800 text-sm font-medium hover:bg-green-100 transition-all cursor-default"
-              >
-                {item.icon}
-                <span>{item.name}</span>
-              </motion.div>
-            ))}
+            {ecosystemItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-100 text-green-800 text-sm font-medium hover:bg-green-100 transition-all cursor-default"
+                >
+                  <Icon aria-hidden="true" className="text-green-600 text-base" />
+                  <span>{item.name}</span>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
@@ -72,6 +69,7 @@ export default function Ecosystem() {
           >
             <Link
               href="/ecosystem"
+              aria-label="Learn more about the Markethub9ja Ecosystem"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold text-sm sm:text-base px-6 py-3 rounded-full shadow-md transition-all duration-300"
             >
               Learn More About the Ecosystem
@@ -79,24 +77,28 @@ export default function Ecosystem() {
           </motion.div>
         </div>
 
-        {/* Right Column - Orbit Section */}
+        {/* Right Column - Orbit */}
         <div className="w-full lg:w-1/2 flex justify-center items-center">
           <div className="relative w-[280px] sm:w-[340px] md:w-[400px] aspect-square rounded-full">
+            
             {/* Outer glow */}
             <div className="absolute inset-0 rounded-full shadow-[0_0_50px_15px_rgba(34,197,94,0.15)] z-0" />
 
             {/* Orbit Container */}
             <div className="relative w-full h-full bg-gradient-to-br from-green-50 to-white rounded-full z-10 flex justify-center items-center overflow-visible">
-              {/* Inner pulse glow */}
-              <div className="absolute w-[70%] h-[70%] bg-green-100/30 rounded-full animate-pulse blur-3xl" />
+              
+              {/* Inner pulse */}
+              <div className="absolute w-[70%] h-[70%] bg-green-100/30 rounded-full animate-pulse blur-3xl" aria-hidden="true" />
 
-              {/* Orbiting Icons */}
+              {/* Orbit Icons */}
               <motion.div
                 className="absolute w-full h-full"
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+                style={{ willChange: 'transform' }}
               >
-                {orbitItems.map((item, index) => {
+                {ecosystemItems.map((item, index) => {
+                  const Icon = item.icon;
                   const rad = (item.angle * Math.PI) / 180;
                   const x = radius * Math.cos(rad);
                   const y = radius * Math.sin(rad);
@@ -110,8 +112,11 @@ export default function Ecosystem() {
                         left: `calc(50% + ${x}px)`,
                       }}
                     >
-                      <div className="bg-white rounded-full shadow-md p-3 border border-gray-200 hover:border-green-500 transition-all duration-200">
-                        {item.icon}
+                      <div
+                        className="bg-white rounded-full shadow-md p-3 border border-gray-200 hover:border-green-500 transition-all duration-200"
+                        aria-label={item.name}
+                      >
+                        <Icon aria-hidden="true" className="text-green-700 text-2xl" />
                       </div>
                       <p className="text-xs text-gray-600 mt-1">{item.name}</p>
                     </div>

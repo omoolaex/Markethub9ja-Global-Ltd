@@ -1,5 +1,5 @@
-'use client';
 
+import Script from 'next/script';
 import Head from 'next/head';
 import AboutSection from '@/components/Homepage/AboutSection';
 import BrandStatement from '@/components/Homepage/BrandStatement';
@@ -8,43 +8,105 @@ import Ecosystem from '@/components/Homepage/Ecosystem';
 import HeroSection from '@/components/Homepage/HeroSection';
 import SubsidiariesSection from '@/components/Homepage/SubsidiariesSection';
 
+export const metadata = {
+  title: "Markethub9ja Global Ltd. | Africa’s Future Through Commerce",
+  description:
+    "Empowering vendors, connecting buyers, and building Africa’s future through commerce, logistics, and innovation.",
+  keywords:
+    "Markethub9ja, Nigeria e-commerce, online marketplace, African vendors, buy online Nigeria",
+  metadataBase: new URL("https://markethub9ja.com"),
+  openGraph: {
+    title: "Markethub9ja Global Ltd.",
+    description:
+      "Building Africa’s Future Through Commerce, Logistics & Innovation",
+    url: "https://markethub9ja.com",
+    siteName: "Markethub9ja",
+    images: [
+      {
+        url: "/assets/logos/markethub9ja.png",
+        width: 1200,
+        height: 630,
+        alt: "Markethub9ja Marketplace",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@markethub9ja",
+    creator: "@markethub9ja",
+  },
+  alternates: {
+    canonical: "https://markethub9ja.com",
+  },
+};
+
 export default function Home() {
   return (
     <>
       {/* SEO Meta Tags */}
       <Head>
-        <title>Markethub9ja | Connecting Commerce, Logistics & Communities in Africa</title>
-        <meta
-          name="description"
-          content="Markethub9ja connects African vendors, buyers, and partners through an integrated ecosystem of commerce, logistics, payments, and community development."
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NKPMXJ2W6X"
+          strategy="afterInteractive"
         />
-        <meta name="keywords" content="African marketplace, e-commerce Nigeria, logistics Africa, digital payments Africa, Markethub9ja" />
-        <meta name="author" content="Markethub9ja Global Ltd" />
-        <link rel="canonical" href="https://markethub9ja.com" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NKPMXJ2W6X');
+          `}
+        </Script>
 
-        {/* Open Graph / Social Sharing */}
-        <meta property="og:title" content="Markethub9ja | Transforming Commerce in Africa" />
-        <meta property="og:description" content="Join the Markethub9ja ecosystem — marketplace, logistics, payments, food, franchises, and community foundation." />
-        <meta property="og:url" content="https://markethub9ja.com" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/og-image.jpg" />
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WX56MGKB');`,
+          }}
+        />
 
-        {/* Schema Markup */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Markethub9ja Global Ltd",
-            "url": "https://markethub9ja.com",
-            "logo": "https://markethub9ja.com/logo.png",
-            "sameAs": [
-              "https://www.facebook.com/markethub9ja",
-              "https://www.instagram.com/markethub9ja",
-              "https://twitter.com/markethub9ja"
-            ],
-            "description": "An integrated African commerce ecosystem with marketplace, logistics, payments, food services, and community initiatives."
-          })}
-        </script>
+        {/* Viewport & Icons */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+
+        {/* Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="xZGro4lB8lvz72WNGinTSoTOezqs4LSqp2jZrE8UXbU"
+        />
+
+        {/* Robots */}
+        <meta name="robots" content="index, follow" />
+
+        {/* Structured Data (JSON-LD for Organization) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Markethub9ja Global Ltd.",
+              url: "https://markethub9ja.com",
+              logo: "https://markethub9ja.com/markethub9ja.png",
+              sameAs: [
+                "https://facebook.com/markethub9ja",
+                "https://instagram.com/markethub9ja",
+                "https://twitter.com/markethub9ja",
+              ],
+            }),
+          }}
+        />
       </Head>
 
       {/* Main semantic wrapper */}

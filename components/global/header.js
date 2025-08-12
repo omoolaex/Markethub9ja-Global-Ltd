@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -14,10 +15,13 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" onClick={closeMenu}>
-          <img
+        <Link href="/" onClick={closeMenu} className="flex items-center">
+          <Image
             src="/logo.png" // Replace with actual logo path
             alt="Markethub9ja Global Ltd."
+            width={160}
+            height={40}
+            priority
             className="h-10 w-auto"
           />
         </Link>

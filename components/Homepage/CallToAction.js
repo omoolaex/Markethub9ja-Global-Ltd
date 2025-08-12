@@ -16,7 +16,7 @@ export default function CallToAction() {
           transition={{ duration: 0.5 }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight"
         >
-          Let's Build the Future of Commerce in Africa — Together
+          Let&apos;s Build the Future of Commerce in Africa — Together
         </motion.h2>
 
         {/* Subtext */}
@@ -26,9 +26,9 @@ export default function CallToAction() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-base sm:text-lg max-w-2xl mx-auto text-gray-700 leading-relaxed"
         >
-          We're open to partnerships that align with our mission to empower local commerce,
-          drive innovation, and deepen community impact. Whether you're a logistics expert,
-          investor, NGO, or a local champion — we’d love to connect.
+          We&apos;re open to partnerships that align with our mission to empower local commerce,
+          drive innovation, and deepen community impact. Whether you&apos;re a logistics expert,
+          investor, NGO, or a local champion — we&apos;d love to connect.
         </motion.p>
 
         {/* Dual CTA Buttons */}

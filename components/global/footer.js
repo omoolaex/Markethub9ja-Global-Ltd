@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -9,7 +10,14 @@ export default function Footer() {
 
         {/* Company Info */}
         <div>
-          <img src="/logo.png" alt="Markethub9ja Logo" className="h-10 w-auto mb-4" />
+          <Image
+            src="/logo.png"
+            alt="Markethub9ja Logo"
+            width={160}
+            height={40}
+            priority
+            className="h-10 w-auto mb-4"
+          />
           <p className="text-sm leading-relaxed text-gray-600">
             Building Africa’s future through commerce, logistics, food systems, fintech, and community-led innovation.
           </p>
@@ -31,8 +39,7 @@ export default function Footer() {
         <div className="sm:border-l-0 lg:border-l border-gray-200 lg:pl-6">
           <h4 className="text-md font-semibold mb-3 text-gray-800">Contact Us</h4>
           <ul className="space-y-2 text-sm">
-            <li>📍 1/2, Sanyaolu Street, Off Old Olowora Rd.,
-                  Berger, Lagos Nigeria</li>
+            <li>📍 1/2, Sanyaolu Street, Off Old Olowora Rd., Berger, Lagos Nigeria</li>
             <li>
               ✉️ <a href="mailto:corp@markethub9ja.com" className="hover:text-green-700">
                 corp@markethub9ja.com
